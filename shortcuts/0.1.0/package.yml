@@ -1,0 +1,48 @@
+# Simple package
+
+name: shortcuts
+parent: default
+
+global_vars:
+  - name: "timestamp"
+    type: "date"
+    params:
+      format: "%s"
+  - name: "date"
+    type: "date"
+    params:
+      format: "%Y-%m-%d"
+
+matches:
+  # Date and marks
+  - trigger: ":now"
+    replace: "{{timestamp}}"
+
+  - trigger: ":date"
+    replace: "{{date}}"
+
+  # Mac Icons
+  - trigger: ":cmd"
+    replace: "⌘"
+
+  - trigger: ":shift"
+    replace: "⇧"
+
+  - trigger: ":opt"
+    replace: "⌥"
+
+  - trigger: ":ctrl"
+    replace: "⌃"
+
+  # emojis
+  - trigger: ":sparkles"
+    replace: "✨"
+
+  - trigger: ":tada"
+    replace: "🎉"
+
+  - trigger: ":ok"
+    replace: "✅"
+
+  - trigger: ":ko"
+    replace: "🙅‍♀️"
