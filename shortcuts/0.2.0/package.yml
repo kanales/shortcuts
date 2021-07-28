@@ -47,11 +47,19 @@ matches:
   - trigger: ":ko"
     replace: "🙅‍♀️"
 
-  # scripts
+  # curled
   - trigger: ":ip"
     replace: "{{output}}"
     vars:
       - name: output
         type: shell
         params:
-          cmd: "curl -Ss 'https://api.ipify.org'"
+          cmd: "curl -s 'https://api.ipify.org'"
+
+- trigger: :mit-long
+  replace: "{{output}}"
+  vars:
+  - name: output
+    type: shell
+    params:
+      cmd: "curl -s 'https://gist.githubusercontent.com/Lissy93/143d2ee01ccc5c052a17/raw/a8ac96cd15847a231931b561d95d2de47066fd33/LICENSE.MD'"
