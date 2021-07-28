@@ -12,6 +12,10 @@ global_vars:
     type: "date"
     params:
       format: "%Y-%m-%d"
+  - name: "year"
+    type: "date"
+    params:
+      format: "%Y"
 
 matches:
   # Date and marks
@@ -20,6 +24,17 @@ matches:
 
   - trigger: ":date"
     replace: "{{date}}"
+
+  # Misc
+  - trigger: ":mit-license"
+    replace: |
+      Copyright © {{year}} Iván Canales
+
+      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+      The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+      THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   # Mac Icons
   - trigger: ":cmd"
@@ -55,11 +70,3 @@ matches:
         type: shell
         params:
           cmd: "curl -s 'https://api.ipify.org'"
-
-- trigger: :mit-long
-  replace: "{{output}}"
-  vars:
-  - name: output
-    type: shell
-    params:
-      cmd: "curl -s 'https://gist.githubusercontent.com/Lissy93/143d2ee01ccc5c052a17/raw/a8ac96cd15847a231931b561d95d2de47066fd33/LICENSE.MD'"
